@@ -1,44 +1,42 @@
-const functions = require('firebase-functions');
 const express = require("express");
 const cors = require("cors");
-const { response, request } = require('express');
-const stripe = require("stripe")('sk_test_51HQwAvLcWDvwCXs9HuIfDZAsgAWtWopl7xqRUyAZ75madRWw2XRjdhytGUjQp4YS9gQsbNmLTgGNdA3uElVq0MPI00apJ2Npjx')
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+const stripe = require("stripe")(
+    'sk_test_51HQwAvLcWDvwCXs9HuIfDZAsgAWtWopl7xqRUyAZ75madRWw2XRjdhytGUjQp4YS9gQsbNmLTgGNdA3uElVq0MPI00apJ2Npjx'
+);
 
-// API
-
-//app config
 const app = express();
+//Used to fix the Cross-Origin Access Control Issue
+var corsPreflightHeaders = {
+  methods: "GET,POST,OPTIONS",
+  optionsSuccessStatus: 200,
+  origin: "*",
+  "cache-control": "no-cache",
+  allowedHeaders: "Content-Type, Authorization",
+};
 
-//middlewares
-app.use(cors({ origin: true}));
+app.use(cors(corsPreflightHeaders));
 app.use(express.json());
 
-//API routes 
-app.get('/', (request, response) => response.status(200).send('hello World') ) 
+app.get("/", (req, res) => {
+  res.status(200).send("hello word");
+});
 
-app.post('/payments/create', async (request, response) => {
-    const total = request.query.total;
-    console.log('payment request recieved BOOOO!! for this amount >>>', total)
+app.post("/payments/create", async (req, res) => {
+  console.log("Reqbody " + req.body);
+  console.log("ReqTotal " + req.query.total);
+  const total = req.query.total;
+  console.log("Total : " + total);
 
-    const paymentIntent = await stripe.paymentIntents.create({
-        amount : total, //subunits of currency
-        currency : "inr",
-    });
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: total,
+    currency: "inr",
+  });
 
-    //ok - created
-    response.status(201).send({
-        clientSecret: paymentIntent.client_secret,
-    });
-})
+  res.status(201).send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
 
-//Listen command
-exports.api = functions.https.onRequest(app)
+const port = process.env.PORT || 5050;
 
-// http://localhost:5001/clone-a6f75/us-central1/api
+app.listen(port, () => console.log("Listening on 5050"));
