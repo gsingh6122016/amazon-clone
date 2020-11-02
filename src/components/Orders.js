@@ -27,7 +27,7 @@ function Orders() {
     }, [user])
     return (
         <div className='orders'>
-            <h1>your orders</h1>
+            <h1>Your Orders</h1>
             <div className='orders__order'>
                 {orders?.map(order => (
                     <Order order={order} />

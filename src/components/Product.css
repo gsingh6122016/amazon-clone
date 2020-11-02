@@ -40,3 +40,13 @@
     margin-bottom: 15px;
   }
   
+  @media(max-width: 600px) {
+    .product {
+      margin: 5px;
+      padding: 20px;
+      width: 85%;
+      max-height: 400px;
+      min-width: 100px;
+   
+    }
+  }

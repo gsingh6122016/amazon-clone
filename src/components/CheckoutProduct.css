@@ -30,3 +30,14 @@
     font-size: 17px;
     font-weight: 800;
 }
+
+@media(max-width: 600px) {
+    .checkoutProduct__title {
+        font-size: 14px;
+        font-weight: 800;
+    }
+    .checkoutProduct {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+  }

@@ -16,3 +16,18 @@
     font-weight:  500;
     text-align: right;
 }
+
+@media(max-width: 600px) {
+    .order {
+        padding: 20px;
+        margin: 20px 0;
+        border: 1px solid lightgray;
+        background-color: white;
+        position: relative;
+    }
+    .order__id {
+        position: absolute;
+        top: 24px;
+        right: 20px;
+    }
+  }
