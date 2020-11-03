@@ -3,7 +3,9 @@ export const initialState = {
     user: null,
     city: null,
     landmark: null,
-    pincode: null
+    pincode: null,
+    name: null,
+    phoneno: null
     // subtotal: 0,
 };
 
@@ -54,6 +56,12 @@ console.log(action);
             pincode: action.pincode
           }
           
+          case 'SET_DETAILS':
+          return {
+            ...state,
+            name: action.name,
+          phoneno: action.phoneno,
+          }
             
         case 'EMPTY_BASKET':
           return {

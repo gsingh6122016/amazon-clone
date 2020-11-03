@@ -4,30 +4,13 @@ import { Link, useHistory } from 'react-router-dom';
 import { getBasketTotal } from '../reducer';
 import { useStateValue } from '../StateProvider';
 import useForm from '../useForm';
-import validate from '../validation';
+import validate from '../AddressValidation';
 import './Address.css'
 
 function Address() {
     const history = useHistory();
     const [{basket}, dispatch] = useStateValue();
-    // const [city, setCity] = useState('');
-    // const [landmark, setLandmark] = useState('');
-    // const [pincode, setPincode] = useState('');
-
-    // const addressSubmit = (e) => {
-    //     e.preventDefault();
-        
-    //         dispatch({
-    //             type: 'SET_ADDRESS',
-    //             city: city,
-    //             landmark: landmark,
-    //             pincode: pincode
-    //           })
-    //           history.push('/payment');
-      
-    // }
-
-   
+  
         const {
           values,
           handleChange,

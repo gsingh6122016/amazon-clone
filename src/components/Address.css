@@ -55,6 +55,10 @@
     border-color: #a88734 #9c7e31 #846a29;
   }
 
+.danger {
+    color: red;
+}
+
   @media(max-width: 600px) {
     .address__container {
         width: 300px;

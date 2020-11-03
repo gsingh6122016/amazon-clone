@@ -19,17 +19,7 @@ function Login() {
 
     const register = e => {
         e.preventDefault();
-        
-        auth.createUserWithEmailAndPassword(email, password)
-        .then((auth) => {
-            // it success craeates a new user account fwith email and password
-            // console.log(auth);
-            if(auth){
-                history.push('/');
-            }
-        })
-        .catch(error => alert(error.message))
-
+        history.push('/register');
     }
 
     return (
@@ -70,7 +60,7 @@ function Login() {
             <button
             type='submit'
             onClick={register}
-            className='login__registerButton'>Create New Account</button>
+            className='login__registerButton'>Register</button>
             </div>
         </div>
     )
