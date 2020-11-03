@@ -9,7 +9,22 @@ function Subtotal() {
 
   // const [{basket, subtotal}, dispatch] = useStateValue();
   const history = useHistory();
-  const [{basket}, dispatch] = useStateValue();
+  const [{basket, user}, dispatch] = useStateValue();
+
+  const proceedHandler = (e) => {
+    if(user) {
+      if(basket.length) {
+        history.push('/address');
+      }
+      else{
+        alert("Please add something to cart first");
+      }
+    }
+    else {
+      history.push('/login')
+    }
+  }
+
     return (
         <div className="subtotal">
             <CurrencyFormat
@@ -32,7 +47,7 @@ function Subtotal() {
         prefix={"Rs. "}
       />
 
-<button onClick={e => history.push('/payment') }>Proceed to Checkout</button>
+<button onClick={proceedHandler}>Proceed to Checkout</button>
         </div>
     )
 }

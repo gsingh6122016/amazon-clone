@@ -1,0 +1,64 @@
+.address {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.address__container {
+    position: fixed;
+    top: 100px;
+    width: 550px;
+    margin-bottom: 20px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+
+.address__price{
+    position: fixed;
+    bottom: 50px;
+}
+.address__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+.address__container > form > h5 {
+    margin-bottom: 5px;
+}
+
+.address__container > form > input {
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: white;
+    width: 98%;
+  }
+
+.address__container > p {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.address__submitButton {
+    background: #f0c14b;
+    border-radius: 2px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid;
+    margin-top: 10px;
+    border-color: #a88734 #9c7e31 #846a29;
+  }
+
+  @media(max-width: 600px) {
+    .address__container {
+        width: 300px;
+        top: 170px;
+    }
+  }
+  

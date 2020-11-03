@@ -11,6 +11,7 @@ import Payment from './components/Payment';
 import {loadStripe} from "@stripe/stripe-js";
 import { Elements} from "@stripe/react-stripe-js";
 import Orders from './components/Orders';
+import Address from './components/Address';
 
 const promise = loadStripe("pk_test_51HQwAvLcWDvwCXs9GvofmYFiZK0mvoSjPAfsmvG1Zwsw2ifQffsQdQj4TcVOcEoZS2u7ZZXmi2sChEdWATsode2900xBsWHDkR");
 
@@ -48,7 +49,10 @@ auth.onAuthStateChanged(authUser => {
                <Header />
               <Orders />
           </Route>
-
+          <Route path="/address">
+               <Header />
+              <Address />
+          </Route>
           <Route path="/login">
             <Login />
           </Route>

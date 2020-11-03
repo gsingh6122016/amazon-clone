@@ -10,7 +10,7 @@ import './Payment.css';
 import {db} from '../firebase';
 
 function Payment() {
-    const [{basket, user}, dispatch] = useStateValue();
+    const [{basket, user, city, landmark, pincode}, dispatch] = useStateValue();
     const history = useHistory();
     const stripe = useStripe();
     const elements = useElements();
@@ -96,8 +96,9 @@ const handleChange = event => {
                         <div className='payment__address'>
                             <p>{user?.email}</p>
                             {/* dummy address */}
-                            <p>123 main lane</p>
-                            <p>Kolkata</p>
+                            <p>Landmark: {landmark}</p>
+                            <p>Pincode: {pincode}</p>
+                            <p>City: {city}</p>
                         </div>
                     </div>
 
